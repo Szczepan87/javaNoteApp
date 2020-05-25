@@ -12,13 +12,13 @@ public class AppModule {
 
     Application mApplication;
 
-    public AppModule(Application mApplication) {
-        this.mApplication = mApplication;
+    public AppModule(Application application) {
+        this.mApplication = application;
     }
 
     @Provides
     @Singleton
-    Application providesApplication(){
+    Application providesApplication() {
         return mApplication;
     }
 }

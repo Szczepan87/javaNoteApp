@@ -1,5 +1,9 @@
 package com.example.javanoteapp.di;
 
+import android.app.Application;
+
+import androidx.room.Room;
+
 import com.example.javanoteapp.repository.NoteDao;
 import com.example.javanoteapp.repository.NoteDatabase;
 import com.example.javanoteapp.repository.NoteRepository;
@@ -12,22 +16,23 @@ import dagger.Provides;
 @Module
 public class RoomModule {
 
-    private NoteDatabase mNoteDatabase;
+    private NoteDatabase noteDatabase;
 
-    public RoomModule(NoteDatabase mNoteDatabase) {
-        this.mNoteDatabase = mNoteDatabase;
+    public RoomModule(Application mApplication) {
+        noteDatabase = Room.databaseBuilder(mApplication, NoteDatabase.class, "note-db")
+                .build();
     }
 
     @Singleton
     @Provides
     NoteDatabase providesNoteDatabase() {
-        return mNoteDatabase;
+        return noteDatabase;
     }
 
     @Singleton
     @Provides
     NoteDao providesNoteDao() {
-        return mNoteDatabase.getNoteDao();
+        return noteDatabase.getNoteDao();
     }
 
     @Singleton
