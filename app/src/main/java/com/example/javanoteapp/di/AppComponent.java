@@ -12,7 +12,9 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(dependencies = {}, modules = {AppModule.class, RoomModule.class, ViewModelModule.class})
+@Component(dependencies = {}, modules = {AppModule.class,
+        RoomModule.class,
+        ViewModelModule.class})
 public interface AppComponent {
 
     void inject(MainActivity mainActivity);
