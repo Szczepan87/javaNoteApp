@@ -3,6 +3,7 @@ package com.example.javanoteapp;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -41,7 +42,7 @@ public class CreateNoteDialog extends DialogFragment {
         return builder.create();
     }
 
-    private void setUpBinding(DialogCreateNoteBinding binding) {
+    private void setUpBinding(final DialogCreateNoteBinding binding) {
         binding.setViewModel(noteAppViewModel);
 
         final String noteContent = Objects.requireNonNull(binding.noteContentEditText.getText()).toString();
@@ -56,6 +57,7 @@ public class CreateNoteDialog extends DialogFragment {
             Thread task = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    Log.d("DIALOG", noteContent);
                     noteAppViewModel.insertNote(new Note(0, noteContent));
                 }
             });

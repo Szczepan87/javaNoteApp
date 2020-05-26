@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         noteAppViewModel = ViewModelProviders.of(this, vmFactory).get(NoteAppViewModel.class);
 
-        binding.notesRecyclerView.setAdapter(new NoteRecyclerAdapter());
+        final NoteRecyclerAdapter adapter = new NoteRecyclerAdapter();
+        binding.notesRecyclerView.setAdapter(adapter);
 
         binding.addNoteFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         noteAppViewModel.getAllNotes().observe(this, new Observer<List<Note>>(){
             @Override
             public void onChanged(List<Note> notes) {
+                adapter.updateList(notes);
                 // fill the list of recycler
             }
         });
