@@ -21,7 +21,7 @@ import java.util.Objects;
 
 public class CreateNoteDialog extends DialogFragment {
 
-    public CreateNoteDialog(NoteAppViewModel viewModel) {
+    CreateNoteDialog(NoteAppViewModel viewModel) {
         this.noteAppViewModel = viewModel;
     }
 
@@ -47,8 +47,6 @@ public class CreateNoteDialog extends DialogFragment {
     private void setUpBinding(final DialogCreateNoteBinding binding) {
         binding.setViewModel(noteAppViewModel);
 
-        final String noteContent = Objects.requireNonNull(binding.noteContentEditText.getText()).toString();
-
         binding.cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,15 +57,20 @@ public class CreateNoteDialog extends DialogFragment {
             Thread task = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Log.d("DIALOG", noteContent);
-                    noteAppViewModel.insertNote(new Note(0, noteContent));
+                    Log.d("DIALOG", getNoteContent());
+                    noteAppViewModel.insertNote(new Note(0, getNoteContent()));
                 }
             });
+
             @Override
             public void onClick(View v) {
                 task.start();
                 dismiss();
             }
         });
+    }
+
+    private String getNoteContent() {
+        return Objects.requireNonNull(binding.noteContentEditText.getText()).toString();
     }
 }
