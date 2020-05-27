@@ -1,4 +1,4 @@
-package com.example.javanoteapp;
+package com.example.javanoteapp.utils;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<NoteRecyclerAdapte
 
     private List<Note> notesList = new ArrayList<Note>();
 
-    void updateList(List<Note> listOfNotes) {
+    public void updateList(List<Note> listOfNotes) {
         notesList.clear();
         notesList.addAll(listOfNotes);
         notifyDataSetChanged();
@@ -38,10 +38,10 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<NoteRecyclerAdapte
         return notesList.size();
     }
 
-    class NoteViewHolder extends RecyclerView.ViewHolder {
+    static class NoteViewHolder extends RecyclerView.ViewHolder {
         private final NoteCardBinding binding;
 
-        public NoteViewHolder(@NonNull NoteCardBinding binding) {
+        NoteViewHolder(@NonNull NoteCardBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

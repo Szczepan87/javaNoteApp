@@ -1,4 +1,4 @@
-package com.example.javanoteapp;
+package com.example.javanoteapp.vm;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
@@ -19,11 +19,11 @@ public class NoteAppViewModel extends ViewModel {
         this.mNoteRepository = mNoteRepository;
     }
 
-    LiveData<List<Note>> getAllNotes() {
+    public LiveData<List<Note>> getAllNotes() {
         return mNoteRepository.getAllNotes();
     }
 
-    void insertNote(Note note) {
+    public void insertNote(Note note) {
         mNoteRepository.addNote(note);
     }
 }

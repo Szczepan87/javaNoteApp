@@ -1,20 +1,22 @@
-package com.example.javanoteapp;
+package com.example.javanoteapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.javanoteapp.utils.NoteRecyclerAdapter;
+import com.example.javanoteapp.R;
 import com.example.javanoteapp.databinding.ActivityMainBinding;
-import com.example.javanoteapp.di.AppModule;
+import com.example.javanoteapp.di.modules.AppModule;
 import com.example.javanoteapp.di.CustomViewModelFactory;
 import com.example.javanoteapp.di.DaggerAppComponent;
-import com.example.javanoteapp.di.RoomModule;
+import com.example.javanoteapp.di.modules.RoomModule;
 import com.example.javanoteapp.model.Note;
+import com.example.javanoteapp.vm.NoteAppViewModel;
 
 import java.util.List;
 

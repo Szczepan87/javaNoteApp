@@ -1,4 +1,4 @@
-package com.example.javanoteapp.di;
+package com.example.javanoteapp.di.modules;
 
 import android.app.Application;
 

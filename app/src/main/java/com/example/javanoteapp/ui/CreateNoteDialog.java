@@ -1,4 +1,4 @@
-package com.example.javanoteapp;
+package com.example.javanoteapp.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -12,8 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.javanoteapp.R;
 import com.example.javanoteapp.databinding.DialogCreateNoteBinding;
 import com.example.javanoteapp.model.Note;
+import com.example.javanoteapp.vm.NoteAppViewModel;
 
 import java.util.Objects;
 

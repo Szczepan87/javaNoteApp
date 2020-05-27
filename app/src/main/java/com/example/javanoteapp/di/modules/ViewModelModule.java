@@ -1,9 +1,11 @@
-package com.example.javanoteapp.di;
+package com.example.javanoteapp.di.modules;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.javanoteapp.NoteAppViewModel;
+import com.example.javanoteapp.vm.NoteAppViewModel;
+import com.example.javanoteapp.di.CustomViewModelFactory;
+import com.example.javanoteapp.di.ViewModelKey;
 
 import dagger.Binds;
 import dagger.Module;
